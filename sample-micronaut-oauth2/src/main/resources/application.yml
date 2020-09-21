@@ -1,0 +1,26 @@
+micronaut:
+  application:
+    name: sample-micronaut-oauth2
+  security:
+    authentication: idtoken
+    endpoints:
+      login:
+        enabled: true
+    redirect:
+      login-success: /secure/anonymous
+    token:
+      jwt:
+        enabled: true
+        signatures:
+          jwks:
+            keycloak:
+              url: http://localhost:8888/auth/realms/master/protocol/openid-connect/certs
+    oauth2.clients.keycloak:
+      grant-type: password
+      client-id: micronaut
+      client-secret: 4ccb59cc-8c56-4e76-b87a-e3d5efc8704a
+      authorization:
+        url: http://localhost:8888/auth/realms/master/protocol/openid-connect/auth
+      token:
+        url: http://localhost:8888/auth/realms/master/protocol/openid-connect/token
+        auth-method: client-secret-post
