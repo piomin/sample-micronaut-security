@@ -19,6 +19,8 @@ micronaut:
       grant-type: password
       client-id: micronaut
       client-secret: 4ccb59cc-8c56-4e76-b87a-e3d5efc8704a
+      openid:
+        issuer: http://localhost:8888/auth/realms/master
       authorization:
         url: http://localhost:8888/auth/realms/master/protocol/openid-connect/auth
       token:
